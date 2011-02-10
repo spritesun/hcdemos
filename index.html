@@ -34,163 +34,165 @@
 	<script type="text/javascript">
 	var chart;
 	jQuery(document).ready(function() {
-		
-			//sold chart
-			sold = new Highcharts.Chart({
+
+		//sold chart
+		sold = new Highcharts.Chart({
+			chart: {
+				renderTo: 'sold',
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				plotShadow: false
+			},
+			title: {
+				text: 'Share Of Sales'
+			},
+			tooltip: {
+				formatter: function() {
+					return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
+				}
+			},
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: true,
+						color: Highcharts.theme.textColor || '#000000',
+						connectorColor: Highcharts.theme.textColor || '#000000',
+						formatter: function() {
+							return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
+						}
+					}
+				}
+			},
+			series: [{
+				type: 'pie',
+				name: 'Browser share',
+				data: [
+
+				{
+					name: 'You',    
+					y: 33,
+					sliced: true,
+					selected: true
+				},
+				['Others',   67],
+				]
+				}]
+			});
+
+
+			//time on market chart
+			time_on_market = new Highcharts.Chart({
 				chart: {
-					renderTo: 'sold',
-					plotBackgroundColor: null,
-					plotBorderWidth: null,
-					plotShadow: false
+					renderTo: 'time-on-market',
+					defaultSeriesType: 'spline'
 				},
 				title: {
-					text: 'Share Of Sales'
+					text: 'Time On Market'
+				},
+				subtitle: {
+					text: 'Norway'
+				},
+				xAxis: {
+					type: 'datetime',
+					lineColor: '#FFFFFF',
+				},
+				yAxis: {
+					title: {
+						text: ''
+					},
+					min: 0,
+					minorGridLineWidth: 0, 
+					gridLineWidth: 0,
+					lineWidth: 2,
+					alternateGridColor: null,
 				},
 				tooltip: {
 					formatter: function() {
-						return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
+						return ''+
+						Highcharts.dateFormat('%e. %b %Y, %H:00', this.x) +': '+ this.y +' m/s';
 					}
 				},
 				plotOptions: {
-					pie: {
-						allowPointSelect: true,
-						cursor: 'pointer',
-						dataLabels: {
-							enabled: true,
-							color: Highcharts.theme.textColor || '#000000',
-							connectorColor: Highcharts.theme.textColor || '#000000',
-							formatter: function() {
-								return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
+					spline: {
+						lineWidth: 4,
+						states: {
+							hover: {
+								lineWidth: 5
 							}
-						}
+						},
+						marker: {
+							enabled: false,
+							states: {
+								hover: {
+									enabled: true,
+									symbol: 'circle',
+									radius: 5,
+									lineWidth: 1
+								}
+							}   
+						},
+						pointInterval: 3600000, // one hour
+						pointStart: Date.UTC(2009, 9, 6, 0, 0, 0)
 					}
 				},
 				series: [{
-					type: 'pie',
-					name: 'Browser share',
-					data: [
+					name: 'Hestavollane',
+					data: [4.3, 5.1, 4.3, 5.2, 5.4, 4.7, 3.5, 4.1, 5.6, 7.4, 6.9, 7.1, 
+					7.9, 7.9, 7.5, 6.7, 7.7, 7.7, 7.4, 7.0, 7.1, 5.8, 5.9, 7.4, 
+					8.2, 8.5, 9.4, 8.1, 10.9, 10.4, 10.9, 12.4, 12.1, 9.5, 7.5, 
+					7.1, 7.5, 8.1, 6.8, 3.4, 2.1, 1.9, 2.8, 2.9, 1.3, 4.4, 4.2, 
+					3.0, 3.0]
 
-					{
-						name: 'You',    
-						y: 33,
-						sliced: true,
-						selected: true
-					},
-					['Others',   67],
-					]
-					}]
+					},]
+					,
+					navigation: {
+						menuItemStyle: {
+							fontSize: '10px'
+						}
+					}
 				});
 
+				//end of ready function
+			});
+			</script>
+		</head>
 
-				//time on market chart
-				time_on_market = new Highcharts.Chart({
-					chart: {
-						renderTo: 'time-on-market',
-						defaultSeriesType: 'spline'
-					},
-					title: {
-						text: 'Time On Market'
-					},
-					subtitle: {
-						text: 'Norway'
-					},
-					xAxis: {
-						type: 'datetime',
-						lineColor: '#FFFFFF',
-					},
-					yAxis: {
-						title: {
-							text: ''
-						},
-						min: 0,
-						minorGridLineWidth: 0, 
-						gridLineWidth: 0,
-						lineWidth: 2,
-						alternateGridColor: null,
-					},
-					tooltip: {
-						formatter: function() {
-							return ''+
-							Highcharts.dateFormat('%e. %b %Y, %H:00', this.x) +': '+ this.y +' m/s';
-						}
-					},
-					plotOptions: {
-						spline: {
-							lineWidth: 4,
-							states: {
-								hover: {
-									lineWidth: 5
-								}
-							},
-							marker: {
-								enabled: false,
-								states: {
-									hover: {
-										enabled: true,
-										symbol: 'circle',
-										radius: 5,
-										lineWidth: 1
-									}
-								}   
-							},
-							pointInterval: 3600000, // one hour
-							pointStart: Date.UTC(2009, 9, 6, 0, 0, 0)
-						}
-					},
-					series: [{
-						name: 'Hestavollane',
-						data: [4.3, 5.1, 4.3, 5.2, 5.4, 4.7, 3.5, 4.1, 5.6, 7.4, 6.9, 7.1, 
-						7.9, 7.9, 7.5, 6.7, 7.7, 7.7, 7.4, 7.0, 7.1, 5.8, 5.9, 7.4, 
-						8.2, 8.5, 9.4, 8.1, 10.9, 10.4, 10.9, 12.4, 12.1, 9.5, 7.5, 
-						7.1, 7.5, 8.1, 6.8, 3.4, 2.1, 1.9, 2.8, 2.9, 1.3, 4.4, 4.2, 
-						3.0, 3.0]
-
-						},]
-						,
-						navigation: {
-							menuItemStyle: {
-								fontSize: '10px'
-							}
-						}
-					});
-
-					//end of ready function
-				});
-				</script>
-			</head>
-
-			<body>
-				<div class="container container_12">
-					<div id="demo-header">
-						<h1>Demos</h1>
-					</div>
-					<div class="grid_5 landing_box">
-					</div>
-					<div class="grid_5 landing_box">
-						<div id="sold" class="highcharts-container"></div>
-						<a href="#">Detailed Report</a>
-					</div>
-					<div class="clear"></div>
-					<div class="grid_5 landing_box">
-						<div id="time-on-market" class="highcharts-container"></div>	
-						<a href="#">Detailed Report</a>
-					</div>
-					<div class="grid_5 landing_box">
-					</div>
-					<div class="clear"></div>
-					<div class="grid_5 landing_box">
-						<h3 style="margin-left:100px;">Suppy + Demand</h3>
-						<span style="font-size:48px;font-weight:900;margin-left:20px;">38</span>
-						<img style="height:48px;width:48px;margin-left:20px" src="images/arrow_up.png"/>
-						<span style="font-size:32px;font-weight:400;">15%</span>
-						<br/>
-						<a href="#">Detailed Report</a>
-					</div>
-					<div class="grid_5 landing_box">
-					</div>
-					<div class="clear"></div>
+		<body>
+			<div class="container container_12">
+				<div id="demo-header">
+					<h1>Demos</h1>
 				</div>
-			</body>
+				<a href="#">Campaign</a>
+				<div class="clear"></div>
+				<div class="grid_5 landing_box">
+				</div>
+				<div class="grid_5 landing_box">
+					<div id="sold" class="highcharts-container"></div>
+					<a href="#">Detailed Report</a>
+				</div>
+				<div class="clear"></div>
+				<div class="grid_5 landing_box">
+					<div id="time-on-market" class="highcharts-container"></div>	
+					<a href="#">Detailed Report</a>
+				</div>
+				<div class="grid_5 landing_box">
+				</div>
+				<div class="clear"></div>
+				<div class="grid_5 landing_box">
+					<h3 style="margin-left:100px;">Suppy + Demand</h3>
+					<span style="font-size:48px;font-weight:900;margin-left:20px;">38</span>
+					<img style="height:48px;width:48px;margin-left:20px" src="images/arrow_up.png"/>
+					<span style="font-size:32px;font-weight:400;">15%</span>
+					<br/>
+					<a href="#">Detailed Report</a>
+				</div>
+				<div class="grid_5 landing_box">
+				</div>
+				<div class="clear"></div>
+			</div>
+		</body>
 
-			</html>
+		</html>
 
