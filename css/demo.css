@@ -16,6 +16,7 @@ body {
 }
 #demo-header h1 {
 	margin: 0;
+	padding-top: 10px;
 	color: #CCC;
 	font-size: 20px;
 }

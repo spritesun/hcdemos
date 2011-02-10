@@ -7,6 +7,9 @@
 .landing_box .highcharts-container {
 	height:170px; margin-left:10px; clear:both; width: 320px;
 }
+.highcharts-container {
+	height:300px; margin-left:10px; clear:both; width: 600px;
+}
 
 #demo-header {
 	margin-bottom: 10px;
