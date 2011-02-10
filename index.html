@@ -40,6 +40,9 @@
 
 		//sold chart
 		sold = new Highcharts.Chart({
+			exporting: {
+				enabled: false,
+			},
 			chart: {
 				renderTo: 'sold',
 				plotBackgroundColor: null,
@@ -87,6 +90,10 @@
 
 			//time on market chart
 			time_on_market = new Highcharts.Chart({
+				exporting: {
+					enabled: false,
+				},
+				
 				chart: {
 					renderTo: 'time-on-market',
 					defaultSeriesType: 'spline'

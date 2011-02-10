@@ -80,10 +80,10 @@
 				}
 			},
 			series: [{
-				name: 'John',
+				name: 'Agent A',
 				data: [5, 3, 4, 7, 2]
 			}, {
-				name: 'Jane',
+				name: 'Agent B',
 				data: [2, 2, 3, 2, 1]
 			}, {
 				name: 'You',
@@ -102,7 +102,7 @@
 					text: 'Percentage of sold listings'
 				},
 				xAxis: {
-					categories: ['1750', '1800', '1850', '1900', '1950', '1999', '2050'],
+					categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
 					tickmarkPlacement: 'on',
 					title: {
 						enabled: false
@@ -132,17 +132,14 @@
 					}
 				},
 				series: [{
-					name: 'Africa',
+					name: 'Agent A',
 					data: [106, 107, 111, 133, 221, 767, 1766]
 				}, {
-					name: 'Europe',
+					name: 'Agent B',
 					data: [163, 203, 276, 408, 547, 729, 628]
 				}, {
-					name: 'America',
+					name: 'Agent C',
 					data: [18, 31, 54, 156, 339, 818, 1201]
-				}, {
-					name: 'Oceania',
-					data: [2, 2, 2, 6, 13, 30, 46]
 				},{
 					name: 'You',
 					data: [502, 635, 809, 947, 1402, 3634, 5268],
@@ -200,7 +197,7 @@
 												address = dataToLookAt[i][3];
 											}
 										}
-						                return '<a style="color:blue" href="' + url +'">' + address + '</a> has been sold for price $' + this.y + 'm';
+						                return '<a style="color:blue" onclick="alert(1);" href="' + url +'">' + address + '</a> has been sold for price $' + this.y + 'm';
 								}
 							},
 							legend: {
