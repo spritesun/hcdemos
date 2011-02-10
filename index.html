@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo Gallery</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--  meta http-equiv="X-UA-Compatible" content="chrome=1" -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript">
+	jQuery.noConflict();
+	</script>
+
+	<script type="text/javascript" src="http://www.highcharts.com//js/highcharts.js"></script>
+	<script type="text/javascript" src="http://www.highcharts.com//js/modules/exporting.js"></script>
+
+
+<!-- Highslide code -->
+<script type="text/javascript" src="http://www.highcharts.com//highslide/highslide-full.min.js"></script>
+<script type="text/javascript" src="http://www.highcharts.com//highslide/highslide.config.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="http://www.highcharts.com//highslide/highslide.css" />
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="http://www.highcharts.com//highslide/highslide-ie6.css" />
+<![endif]-->
+<!-- End Highslide code -->
+<script type="text/javascript" src="http://www.highcharts.com/demo/scripts.js"></script>
+
+<script type="text/javascript">
+Highcharts.theme = { colors: ['#4572A7'] };// prevent errors in default theme
+var highchartsOptions = Highcharts.getOptions(); 
+</script>
+
+<link rel="stylesheet" href="http://www.highcharts.com//templates/yoo_symphony/css/template.css" type="text/css" />
+<link rel="stylesheet" href="http://www.highcharts.com//templates/yoo_symphony/css/variations/brown.css" type="text/css" />
+<link href="http://www.highcharts.com/demo/demo.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+
+var chart;
+jQuery(document).ready(function() {
+	chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'container',
+			plotBackgroundColor: null,
+			plotBorderWidth: null,
+			plotShadow: false
+		},
+		title: {
+			text: 'Browser market shares at a specific website, 2010'
+		},
+		tooltip: {
+			formatter: function() {
+				return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
+			}
+		},
+		plotOptions: {
+			pie: {
+				allowPointSelect: true,
+				cursor: 'pointer',
+				dataLabels: {
+					enabled: true,
+					color: Highcharts.theme.textColor || '#000000',
+					connectorColor: Highcharts.theme.textColor || '#000000',
+					formatter: function() {
+						return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
+					}
+				}
+			}
+		},
+		series: [{
+			type: 'pie',
+			name: 'Browser share',
+			data: [
+			['Firefox',   45.0],
+			['IE',       26.8],
+			{
+				name: 'Chrome',    
+				y: 12.8,
+				sliced: true,
+				selected: true
+			},
+			['Safari',    8.5],
+			['Opera',     6.2],
+			['Others',   0.7]
+			]
+			}]
+		});
+	});
+	</script>
+
+</head>
+<body>
+	<div id="demo-header">
+		<h1>Demos</h1>
+	</div>
+	<div id="container" class="highcharts-container" style="height:410px; margin: 0 2em; clear:both; min-width: 600px"></div>	
+	
+</body>
+
+</html>
+
