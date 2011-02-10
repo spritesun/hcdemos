@@ -43,7 +43,30 @@
 		         text: 'VIEWS'
 		      },
 		      xAxis: {
-		         categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May']
+		         categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+				 alternateGridColor: null,
+				 plotBands: [{ 
+				            from: -1,
+				            to: 1.5,
+				            color: 'rgba(68, 170, 213, 0.1)',
+				            label: {
+				               text: 'Standard',
+				               style: {
+				                  color: Highcharts.theme.textColor || '#606060'
+				               }
+				            }
+				         }, { 
+				            from: 1.5,
+				            to: 5,
+				            color: '#DDDDDD',
+				            label: {
+				               text: 'Feature',
+				               style: {
+				                  color: Highcharts.theme.textColor || '#606060'
+				               }
+				            }
+				         },]
+		        
 		      },
 		      tooltip: {
 		         formatter: function() {
