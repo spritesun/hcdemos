@@ -31,6 +31,8 @@
 	<link href="css/demo.css" rel="stylesheet" type="text/css" />
 	<link href="css/960.css" rel="stylesheet" type="text/css" />
 	<link href="css/main.css" rel="stylesheet" type="text/css" />
+	<link href="css/jquery-ui-1.8.9.custom.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery-ui-1.8.9.custom.min.js"></script>
 	<!-- end of header -->
 
 	<script type="text/javascript">
@@ -244,7 +246,15 @@
 						});
 
 					});
+
 			</script>
+			<script>
+			  jQuery(document).ready(function() {
+			    jQuery("#tabs").tabs();
+				jQuery("#tabs2").tabs();
+			  });
+			</script>
+			
 		</head>
 
 		<body>
@@ -254,23 +264,17 @@
 				</div>
 				<a href="#">Campaign</a>
 				<div class="clear"></div>
-				<div class="grid_10">
-					<div id="stacked"  class="highcharts-container"></div>
+				<div id="tabs">
+					<ul>
+						<li><a href="#stacked"><span>Sold amount</span></a></li>
+				        <li><a href="#area"><span>Sold Percentage</span></a></li>
+					</ul>
+					<div id="stacked"  class="grid_10 highcharts-container"></div>
+					<div id="area"  class="grid_10 highcharts-container" ></div>
 				</div>
-				<div class="clear"></div>
 
-				<div class="grid_10">
-					<div id="area"  class="highcharts-container"></div>
-				</div>
-				<div class="clear"></div>
-
-				<div class="grid_10">
-					<div id="sold-over-time"  class="highcharts-container">
-						
-					</div>
-				</div>
-				<div class="clear"></div>
-
+				<div id="sold-over-time"  class="grid_10 highcharts-container" ></div>				
+				
 			</div>
 		</body>
 
