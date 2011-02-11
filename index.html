@@ -57,6 +57,11 @@
 					return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
 				}
 			},
+			credits: {
+				enabled:true,
+				text:'realestate.com.au',
+				href:"http://realestate.com.au"
+			},
 			plotOptions: {
 				pie: {
 					allowPointSelect: true,
@@ -107,6 +112,11 @@
 				xAxis: {
 					type: 'datetime',
 					lineColor: '#FFFFFF',
+				},
+				credits: {
+					enabled:true,
+					text:'realestate.com.au',
+					href:"http://realestate.com.au"
 				},
 				yAxis: {
 					title: {
@@ -275,7 +285,7 @@
 					<div class="clear"></div> -->
 					<div id="nav">
 						<ul>
-							<li><a href="#market"><span>Market</span></a></li>
+							<li><a href="#market"><span>Market + Competitors</span></a></li>
 							<li><a href="#campaign"><span>Campaign</span></a></li>
 						</ul>
 						<div id="campaign">
