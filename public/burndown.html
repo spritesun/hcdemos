@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-
 <head>
 	<title>Demo Gallery</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,6 +14,7 @@
 	<script type="text/javascript" src="js/exporting.js"></script>
 	<!-- Highslide code -->
 	<script type="text/javascript" src="js/highslide-full.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.9.custom.min.js"></script>
 	<script type="text/javascript" src="js/highslide.config.js" charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="css/highslide.css" />
 	<!--[if lt IE 7]>
@@ -32,7 +32,6 @@
 	<link href="css/960.css" rel="stylesheet" type="text/css" />
 	<link href="css/main.css" rel="stylesheet" type="text/css" />
 	<link href="css/jquery-ui-1.8.9.custom.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="js/jquery-ui-1.8.9.custom.min.js"></script>
 	<!-- end of header -->
 
 	<script type="text/javascript">
@@ -148,7 +147,7 @@
 						data: finished
 					}, {
 						type: 'line',
-						name: 'Actual finished',
+						name: 'Scope',
 						data: scope
 					}, {
 							type: 'line',
@@ -159,7 +158,7 @@
 						},
 					{
 						type: 'line',
-						name: 'Scope',
+						name: 'Finished',
 						data: accumulated_finished
 					}]
 				});
