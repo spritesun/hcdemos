@@ -44,7 +44,7 @@
 				defaultSeriesType: 'column'
 			},
 			title: {
-				text: 'Share of sold listings'
+				text: 'Marketshare of completed sales'
 			},
 			xAxis: {
 				categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May']
@@ -261,21 +261,46 @@
 		</head>
 
 		<body>
+			
 			<div class="container container_12">
 				<div id="demo-header">
-					<h1>Share of sold listing</h1>
+					<h1>Marketshare of completed sales</h1>
 				</div>
 				<div class="clear"></div>
 				<div>
-					<a href="index.html">Home</a> &gt; <span>Share of sold listing</span>
+					<a href="index.html">Home</a> &gt; <span>Marketshare of completed sales</span>
 				</div>
 				<div id="tabs">
 					<ul>
 						<li><a href="#stacked"><span>Sold amount</span></a></li>
 				        <li><a href="#area"><span>Sold Percentage</span></a></li>
 					</ul>
-					<div id="stacked"  class="grid_10 highcharts-container"></div>
-					<div id="area"  class="grid_10 highcharts-container" ></div>
+				 	<div id="critieras_nav">
+						<div id="suburbs_criterias_nav" class="rounded" >
+							<h4 class="criterias_nav_title">Suburbs</h4>
+							<INPUT TYPE=CHECKBOX NAME="suburbs_criterias" checked>Abbutsford</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="suburbs_criterias" checked>Ande</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="suburbs_criterias" checked>Bentelgn</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="suburbs_criterias" checked>Ceres</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="suburbs_criterias" checked>Kew</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="suburbs_criterias">Malern</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="suburbs_criterias">Richmond</input>
+						</div>
+					
+						<div id="channels_criterias_nav" class="rounded" >
+							<h4 class="criterias_nav_title">Channels</h4>
+							<INPUT TYPE=CHECKBOX NAME="channels_criterias" >Build</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="channels_criterias" >Business</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="channels_criterias" >Buy</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="channels_criterias" >Commercial</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="channels_criterias" >Rent</input><br/>
+						</div>
+						<INPUT  id="submit_nav_criterias" TYPE=SUBMIT VALUE="Save">
+						
+					</div>
+					<div id="stacked"  class="grid_10 reports"></div>
+					 
+					<div id="area"  class="grid_10 reports" ></div>
 				</div>
 
 				<div id="sold-over-time"  class="grid_10 highcharts-container" ></div>				
