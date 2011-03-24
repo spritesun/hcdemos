@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	
+	
+	
+	<title>Demo Gallery</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--  meta http-equiv="X-UA-Compatible" content="chrome=1" -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+	jQuery.noConflict();
+	</script>
+
+	<script type="text/javascript" src="js/highcharts.js"></script>
+	<script type="text/javascript" src="js/exporting.js"></script>
+	<!-- Highslide code -->
+	<script type="text/javascript" src="js/highslide-full.min.js"></script>
+	<script type="text/javascript" src="js/highslide.config.js" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href="css/highslide.css" />
+	<!--[if lt IE 7]>
+	<link rel="stylesheet" type="text/css" href="css/highslide-ie6.css" />
+	<![endif]-->
+	<!-- End Highslide code -->
+	<script type="text/javascript" src="js/scripts.js"></script>
+	<script type="text/javascript">
+	Highcharts.theme = { colors: ['#4572A7'] };// prevent errors in default theme
+	var highchartsOptions = Highcharts.getOptions(); 
+	</script>
+	<link rel="stylesheet" href="css/template.css" type="text/css" />
+	<link rel="stylesheet" href="css/brown.css" type="text/css" />
+	<link href="css/demo.css" rel="stylesheet" type="text/css" />
+	<link href="css/960.css" rel="stylesheet" type="text/css" />
+	<link href="css/main.css" rel="stylesheet" type="text/css" />
+	<link href="css/jquery-ui-1.8.9.custom.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery-ui-1.8.9.custom.min.js"></script>
+	<!-- end of header -->
+
+	<script type="text/javascript">
+	var chart;
+	jQuery(document).ready(function() {
+			// area chart
+			area = new Highcharts.Chart({
+				chart: {
+					renderTo: 'twoY',
+					zoomType: 'xy'
+				},
+				title: {
+					text: 'supply+demand'
+				},
+				xAxis: {
+					categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+					tickmarkPlacement: 'on',
+					title: {
+						enabled: false
+					}
+				},
+				yAxis: [{ // Primary yAxis
+				labels: {
+                        formatter: function() {
+				               return this.value ;
+				         },
+				         style: {
+				               color: '#89A54E'
+				         }
+				 },
+				 title: {
+				            text: 'People View',
+				            style: {
+				               color: '#89A54E'
+				            }
+				  },
+				  opposite: true
+
+				  }, 
+				  { // Secondary yAxis
+				          title: {
+				            text: 'Properties',
+				             style: {
+				               color: '#4572A7'
+				             }
+				          },
+				          labels: {
+				              formatter: function() {
+				                 return this.value ;
+				              },
+				              style: {
+				                color: '#4572A7'
+				               }
+				           }
+                     }],
+				
+				tooltip: {
+					formatter: function() {
+					            
+					            return ''+
+					               this.x +': '+ this.y ;
+					         }
+					
+				},
+				plotOptions: {
+					area: {
+						stacking: 'percent',
+						lineColor: '#ffffff',
+						lineWidth: 1,
+						marker: {
+							lineWidth: 1,
+							lineColor: '#ffffff'
+						}
+					}
+				},
+				
+				
+				series: 	[{
+					         name: 'Properties',
+					         color: '#4572A7',
+					         type: 'spline',
+					         yAxis: 1,
+					         data: [49, 71, 106, 129, 144, 176]      
+
+					      },  {
+					         name: 'People View',
+					         color: '#89A54E',
+					         type: 'spline',
+					         data: [1240, 12226, 1333, 11111, 4444, 12345]
+					      }]
+					   });
+				
+				
+			
+				//end of ready function
+			});
+			
+			var youagentData = [[161.2, 51.6, 'http://www.realestate.com.au/property-apartment-vic-melbourne-107154371', 'Collions Street #300'],[163.7, 57.6, 'http://www.realestate.com.au/property-apartment-vic-melbourne-107154372', 'China Town #211']]
+			
+			var otherAgentData = [[174.0, 65.6, 'http://www.realestate.com.au/property-apartment-vic-melbourne-107140215', 'River Road #313']]
+			
+
+			</script>
+			<script>
+			  jQuery(document).ready(function() {
+			    jQuery("#tabs").tabs();
+			  });
+			</script>
+			
+		</head>
+
+		<body>
+			
+			<div class="container container_12">
+				<div id="demo-header">
+					<h1>Marketshare of completed sales</h1>
+				</div>
+				<div class="clear"></div>
+				<div>
+					<a href="index.html">Home</a> &gt; <span>Time on Market</span>
+				</div>
+				<div id="tabs">
+				
+				 	<div id="critieras_nav">
+						<div id="suburbs_criterias_nav" class="rounded" >
+							<h4 class="criterias_nav_title">Suburbs</h4>
+							<INPUT TYPE=CHECKBOX NAME="suburbs_criterias" checked>Abbutsford</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="suburbs_criterias" checked>Ande</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="suburbs_criterias" checked>Bentelgn</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="suburbs_criterias" checked>Ceres</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="suburbs_criterias" checked>Kew</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="suburbs_criterias">Malern</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="suburbs_criterias">Richmond</input>
+						</div>
+					
+						<div id="channels_criterias_nav" class="rounded" >
+							<h4 class="criterias_nav_title">Channels</h4>
+							<INPUT TYPE=CHECKBOX NAME="channels_criterias" >Build</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="channels_criterias" >Business</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="channels_criterias" >Commercial-For Lease</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="channels_criterias" >Commercial-For Sale</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="channels_criterias" >Residential-Buy</input><br/>
+							<INPUT TYPE=CHECKBOX NAME="channels_criterias" >Residential-Rent</input><br/>
+						</div>
+						<INPUT  id="submit_nav_criterias" TYPE=SUBMIT VALUE="Save">
+						
+					</div>
+					<div id="twoY"  class="grid_10 reports" ></div>
+				</div>
+
+			</div>
+		</body>
+
+		</html>
+
